@@ -1469,8 +1469,8 @@
             <div class="container">
                 <div class="flex-row-reverse row align-items-center">
                     <div class="text-center col-md-12 col-sm-12">
-                        Copyright © <span id="year"></span> <a href="javascript:void(0)">Sash</a>. Designed
-                        with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> Spruko
+                        Copyright © <span id="year"></span> <a href="javascript:void(0)">Laravel 9 Admin</a>. Designed
+                        with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> laravel 9
                         </a> All rights reserved.
                     </div>
                 </div>

@@ -27,9 +27,13 @@ final class RoleTable extends PowerGridComponent
     | Setup Table's general features
     |
     */
+    public $name;
+
+    public $guard_name;
+
     public function setUp(): array
     {
-        $this->showCheckBox();
+        //$this->showCheckBox();
 
         return [
             Exportable::make('export')
@@ -119,12 +123,13 @@ final class RoleTable extends PowerGridComponent
             Column::make('Role Name', 'name', 'name')
                 ->searchable()
                 ->sortable()
-                ->makeInputText(),
+                ->makeInputText()
+                ->editOnClick(),
 
             Column::make('Guard Name', 'guard_name', 'guard_name')
                 ->searchable()
                 ->sortable()
-                ->makeInputText(),
+                ->makeInputText()->editOnClick(),
 
         ];
     }
@@ -156,30 +161,37 @@ final class RoleTable extends PowerGridComponent
         ];
     }
 
+    public function onUpdatedEditable(string $id, string $field, string $value): void
+    {
+        Role::query()->find($id)->update([
+            $field => $value,
+        ]);
+    }
+
     /*
-    |--------------------------------------------------------------------------
-    | Actions Rules
-    |--------------------------------------------------------------------------
-    | Enable the method below to configure Rules for your Table and Action Buttons.
-    |
-    */
+        |--------------------------------------------------------------------------
+        | Actions Rules
+        |--------------------------------------------------------------------------
+        | Enable the method below to configure Rules for your Table and Action Buttons.
+        |
+        */
 
      /**
-     * PowerGrid Role Action Rules.
-     *
-     * @return array<int, RuleActions>
-     */
+         * PowerGrid Role Action Rules.
+         *
+         * @return array<int, RuleActions>
+         */
 
     /*
-    public function actionRules(): array
-    {
-       return [
+        public function actionRules(): array
+        {
+           return [
 
-           //Hide button edit for ID 1
-            Rule::button('edit')
-                ->when(fn($role) => $role->id === 1)
-                ->hide(),
-        ];
-    }
-    */
+               //Hide button edit for ID 1
+                Rule::button('edit')
+                    ->when(fn($role) => $role->id === 1)
+                    ->hide(),
+            ];
+        }
+        */
 }
