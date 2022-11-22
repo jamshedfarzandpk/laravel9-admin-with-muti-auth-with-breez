@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,10 +35,11 @@ require __DIR__.'/auth.php';
 * Admin Routes
 */
 
-Route::middleware('admin.auth')->group(function () {
-    Route::get('/admin/dashboard', function () {
+Route::middleware('admin.auth')->prefix('admin')->as('admin.')->group(function () {
+    Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->middleware(['verified'])->name('admin.dashboard');
+    Route::resource('users/roles', RoleController::class);
 });
 
 require __DIR__.'/adminAuth.php';

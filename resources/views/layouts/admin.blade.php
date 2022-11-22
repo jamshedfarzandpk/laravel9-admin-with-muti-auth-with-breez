@@ -7,1479 +7,3961 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-   
-    <link rel="stylesheet" href="{{ asset('admin/dist/css/app.css') }}" />
 
+ <!-- BOOTSTRAP CSS -->
+ <link id="style" href="{{ asset('admin/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+
+ <!-- STYLE CSS -->
+ <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet" />
+ <link href="{{ asset('admin/assets/css/dark-style.css') }}" rel="stylesheet" />
+ <link href="{{ asset('admin/assets/css/transparent-style.css') }}" rel="stylesheet">
+ <link href="{{ asset('admin/assets/css/skin-modes.css') }}" rel="stylesheet" />
+
+ <!--- FONT-ICONS CSS -->
+ <link href="{{ asset('admin/assets/css/icons.css') }}" rel="stylesheet" />
+
+ <!-- COLOR SKIN CSS -->
+ <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{ asset('admin/assets/colors/color1.css') }}" />
 
     <!-- Scripts -->
+    @livewireStyles
+    @powerGridStyles
+
 </head>
 
-<body class="py-5 md:py-0 bg-black/[0.15] dark:bg-transparent">
-    <!-- BEGIN: Mobile Menu -->
-    <div class="mobile-menu md:hidden">
-        <div class="mobile-menu-bar">
-            <a href="" class="flex mr-auto">
-                <img alt="Rubick Tailwind HTML Admin Template" class="w-6" src="dist/images/logo.svg">
-            </a>
-            <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2"
-                    class="w-8 h-8 text-white transform -rotate-90"></i> </a>
-        </div>
-        <ul class="border-t border-white/[0.08] py-5 hidden">
-            <li>
-                <a href="javascript:;.html" class="menu menu--active">
-                    <div class="menu__icon"> <i data-feather="home"></i> </div>
-                    <div class="menu__title"> Dashboard <i data-feather="chevron-down"
-                            class="transform rotate-180 menu__sub-icon"></i> </div>
-                </a>
-                <ul class="menu__sub-open">
-                    <li>
-                        <a href="index.html" class="menu menu--active">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overview 1 </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-dashboard-overview-2.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overview 2 </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-dashboard-overview-3.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overview 3 </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="box"></i> </div>
-                    <div class="menu__title"> Menu Layout <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="index.html" class="menu menu--active">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Side Menu </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="simple-menu-light-dashboard-overview-1.html" class="menu menu--active">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Simple Menu </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="top-menu-light-dashboard-overview-1.html" class="menu menu--active">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Top Menu </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="side-menu-light-inbox.html" class="menu">
-                    <div class="menu__icon"> <i data-feather="inbox"></i> </div>
-                    <div class="menu__title"> Inbox </div>
-                </a>
-            </li>
-            <li>
-                <a href="side-menu-light-file-manager.html" class="menu">
-                    <div class="menu__icon"> <i data-feather="hard-drive"></i> </div>
-                    <div class="menu__title"> File Manager </div>
-                </a>
-            </li>
-            <li>
-                <a href="side-menu-light-point-of-sale.html" class="menu">
-                    <div class="menu__icon"> <i data-feather="credit-card"></i> </div>
-                    <div class="menu__title"> Point of Sale </div>
-                </a>
-            </li>
-            <li>
-                <a href="side-menu-light-chat.html" class="menu">
-                    <div class="menu__icon"> <i data-feather="message-square"></i> </div>
-                    <div class="menu__title"> Chat </div>
-                </a>
-            </li>
-            <li>
-                <a href="side-menu-light-post.html" class="menu">
-                    <div class="menu__icon"> <i data-feather="file-text"></i> </div>
-                    <div class="menu__title"> Post </div>
-                </a>
-            </li>
-            <li>
-                <a href="side-menu-light-calendar.html" class="menu">
-                    <div class="menu__icon"> <i data-feather="calendar"></i> </div>
-                    <div class="menu__title"> Calendar </div>
-                </a>
-            </li>
-            <li class="my-6 menu__devider"></li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="edit"></i> </div>
-                    <div class="menu__title"> Crud <i data-feather="chevron-down" class="menu__sub-icon "></i> </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="side-menu-light-crud-data-list.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Data List </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-crud-form.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Form </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="users"></i> </div>
-                    <div class="menu__title"> Users <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="side-menu-light-users-layout-1.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Layout 1 </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-users-layout-2.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Layout 2 </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-users-layout-3.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Layout 3 </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="trello"></i> </div>
-                    <div class="menu__title"> Profile <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="side-menu-light-profile-overview-1.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overview 1 </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-profile-overview-2.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overview 2 </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-profile-overview-3.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overview 3 </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="layout"></i> </div>
-                    <div class="menu__title"> Pages <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Wizards <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-wizard-layout-1.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 1</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-wizard-layout-2.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 2</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-wizard-layout-3.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 3</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Blog <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-blog-layout-1.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 1</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-blog-layout-2.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 2</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-blog-layout-3.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 3</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Pricing <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-pricing-layout-1.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 1</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-pricing-layout-2.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 2</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Invoice <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-invoice-layout-1.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 1</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-invoice-layout-2.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 2</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> FAQ <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                            </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-faq-layout-1.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 1</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-faq-layout-2.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 2</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-faq-layout-3.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Layout 3</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="login-light-login.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Login </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login-light-register.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Register </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="main-light-error-page.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Error Page </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-update-profile.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Update profile </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-change-password.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Change Password </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="my-6 menu__devider"></li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="inbox"></i> </div>
-                    <div class="menu__title"> Components <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Table <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-regular-table.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Regular Table</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-tabulator.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Tabulator</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Overlay <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-modal.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Modal</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-slide-over.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Slide Over</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-notification.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Notification</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-accordion.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Accordion </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-button.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Button </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-alert.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Alert </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-progress-bar.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Progress Bar </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-tooltip.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Tooltip </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-dropdown.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Dropdown </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-typography.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Typography </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-icon.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Icon </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-loading-icon.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Loading Icon </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="sidebar"></i> </div>
-                    <div class="menu__title"> Forms <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="side-menu-light-regular-form.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Regular Form </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-datepicker.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Datepicker </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-tom-select.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Tom Select </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-file-upload.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> File Upload </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Wysiwyg Editor <i data-feather="chevron-down"
-                                    class="menu__sub-icon "></i> </div>
-                        </a>
-                        <ul class="">
-                            <li>
-                                <a href="side-menu-light-wysiwyg-editor-classic.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Classic</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-wysiwyg-editor-inline.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Inline</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-wysiwyg-editor-balloon.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Balloon</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-wysiwyg-editor-balloon-block.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Balloon Block</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="side-menu-light-wysiwyg-editor-document.html" class="menu">
-                                    <div class="menu__icon"> <i data-feather="zap"></i> </div>
-                                    <div class="menu__title">Document</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-validation.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Validation </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="menu">
-                    <div class="menu__icon"> <i data-feather="hard-drive"></i> </div>
-                    <div class="menu__title"> Widgets <i data-feather="chevron-down" class="menu__sub-icon "></i>
-                    </div>
-                </a>
-                <ul class="">
-                    <li>
-                        <a href="side-menu-light-chart.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Chart </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-slider.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Slider </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="side-menu-light-image-zoom.html" class="menu">
-                            <div class="menu__icon"> <i data-feather="activity"></i> </div>
-                            <div class="menu__title"> Image Zoom </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+<body class="app sidebar-mini ltr light-mode">
+    <!-- GLOBAL-LOADER -->
+    <div id="global-loader">
+        <img src="{{ asset('admin/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
     </div>
-    <!-- END: Mobile Menu -->
-    <div class="flex overflow-hidden">
-        <!-- BEGIN: Side Menu -->
-        <nav class="side-nav">
-            <a href="" class="flex items-center pt-4 pl-5 mt-3 intro-x">
-                <img alt="Tinker Tailwind HTML Admin Template" class="w-6" src="dist/images/logo.svg">
-                <span class="hidden ml-3 text-lg text-white xl:block"> Laravel Admin </span>
-            </a>
-            <div class="my-6 side-nav__devider"></div>
-            <ul>
-                <li>
-                    <a href="javascript:;.html" class="side-menu side-menu--active">
-                        <div class="side-menu__icon"> <i data-feather="home"></i> </div>
-                        <div class="side-menu__title">
-                            Dashboard
-                            <div class="transform rotate-180 side-menu__sub-icon"> <i data-feather="chevron-down"></i>
-                            </div>
+    <!-- /GLOBAL-LOADER -->
+
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page-main">
+
+            <!-- app-Header -->
+            <div class="sticky app-header header">
+                <div class="container-fluid main-container">
+                    <div class="d-flex">
+                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
+                        <!-- sidebar-toggle-->
+                        <a class="logo-horizontal " href="index.html">
+                            <img src="{{ asset('admin/assets/images/brand/logo.png') }}" class="header-brand-img desktop-logo" alt="logo">
+                            <img src="{{ asset('admin/assets/images/brand/logo-3.png') }}" class="header-brand-img light-logo1"
+                                alt="logo">
+                        </a>
+                        <!-- LOGO -->
+                        <div class="main-header-center ms-3 d-none d-lg-block">
+                            <input type="text" class="form-control" id="typehead" placeholder="Search for results...">
+                            <button class="px-0 pt-2 btn"><i class="fe fe-search" aria-hidden="true"></i></button>
                         </div>
-                    </a>
-                    <ul class="side-menu__sub-open">
-                        <li>
-                            <a href="index.html" class="side-menu side-menu--active">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Overview 1 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-dashboard-overview-2.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Overview 2 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-dashboard-overview-3.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Overview 3 </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="box"></i> </div>
-                        <div class="side-menu__title">
-                            Menu Layout
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="index.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Side Menu </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="simple-menu-light-dashboard-overview-1.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Simple Menu </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="top-menu-light-dashboard-overview-1.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Top Menu </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="side-menu-light-inbox.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
-                        <div class="side-menu__title"> Inbox </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-light-file-manager.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                        <div class="side-menu__title"> File Manager </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-light-point-of-sale.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="credit-card"></i> </div>
-                        <div class="side-menu__title"> Point of Sale </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-light-chat.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="message-square"></i> </div>
-                        <div class="side-menu__title"> Chat </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-light-post.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="file-text"></i> </div>
-                        <div class="side-menu__title"> Post </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="side-menu-light-calendar.html" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="calendar"></i> </div>
-                        <div class="side-menu__title"> Calendar </div>
-                    </a>
-                </li>
-                <li class="my-6 side-nav__devider"></li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
-                        <div class="side-menu__title">
-                            Crud
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="side-menu-light-crud-data-list.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Data List </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-crud-form.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Form </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                        <div class="side-menu__title">
-                            Users
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="side-menu-light-users-layout-1.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Layout 1 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-users-layout-2.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Layout 2 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-users-layout-3.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Layout 3 </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="trello"></i> </div>
-                        <div class="side-menu__title">
-                            Profile
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="side-menu-light-profile-overview-1.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Overview 1 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-profile-overview-2.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Overview 2 </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-profile-overview-3.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Overview 3 </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="layout"></i> </div>
-                        <div class="side-menu__title">
-                            Pages
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Wizards
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-wizard-layout-1.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 1</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-wizard-layout-2.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 2</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-wizard-layout-3.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 3</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Blog
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-blog-layout-1.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 1</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-blog-layout-2.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 2</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-blog-layout-3.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 3</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Pricing
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-pricing-layout-1.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 1</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-pricing-layout-2.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 2</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Invoice
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-invoice-layout-1.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 1</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-invoice-layout-2.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 2</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    FAQ
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-faq-layout-1.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 1</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-faq-layout-2.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 2</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-faq-layout-3.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Layout 3</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="login-light-login.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Login </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login-light-register.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Register </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="main-light-error-page.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Error Page </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-update-profile.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Update profile </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-change-password.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Change Password </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="my-6 side-nav__devider"></li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="inbox"></i> </div>
-                        <div class="side-menu__title">
-                            Components
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Table
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-regular-table.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Regular Table</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-tabulator.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Tabulator</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Overlay
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-modal.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Modal</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-slide-over.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Slide Over</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-notification.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Notification</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-accordion.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Accordion </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-button.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Button </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-alert.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Alert </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-progress-bar.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Progress Bar </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-tooltip.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Tooltip </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-dropdown.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Dropdown </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-typography.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Typography </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-icon.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Icon </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-loading-icon.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Loading Icon </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="sidebar"></i> </div>
-                        <div class="side-menu__title">
-                            Forms
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="side-menu-light-regular-form.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Regular Form </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-datepicker.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Datepicker </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-tom-select.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Tom Select </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-file-upload.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> File Upload </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title">
-                                    Wysiwyg Editor
-                                    <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                                </div>
-                            </a>
-                            <ul class="">
-                                <li>
-                                    <a href="side-menu-light-wysiwyg-editor-classic.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Classic</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-wysiwyg-editor-inline.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Inline</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-wysiwyg-editor-balloon.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Balloon</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-wysiwyg-editor-balloon-block.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Balloon Block</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="side-menu-light-wysiwyg-editor-document.html" class="side-menu">
-                                        <div class="side-menu__icon"> <i data-feather="zap"></i> </div>
-                                        <div class="side-menu__title">Document</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-validation.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Validation </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" class="side-menu">
-                        <div class="side-menu__icon"> <i data-feather="hard-drive"></i> </div>
-                        <div class="side-menu__title">
-                            Widgets
-                            <div class="side-menu__sub-icon "> <i data-feather="chevron-down"></i> </div>
-                        </div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="side-menu-light-chart.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Chart </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-slider.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Slider </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="side-menu-light-image-zoom.html" class="side-menu">
-                                <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                                <div class="side-menu__title"> Image Zoom </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <!-- END: Side Menu -->
-        <!-- BEGIN: Content -->
-        <div class="content">
-            <!-- BEGIN: Top Bar -->
-            <div class="px-4 -mx-4 top-bar md:mx-0 md:px-0">
-                <!-- BEGIN: Breadcrumb -->
-                <nav aria-label="breadcrumb" class="hidden mr-auto -intro-x sm:flex">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Application</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                    </ol>
-                </nav>
-                <!-- END: Breadcrumb -->
-                <!-- BEGIN: Search -->
-                <div class="relative mr-3 intro-x sm:mr-6">
-                    <div class="hidden search sm:block">
-                        <input type="text" class="border-transparent search__input form-control"
-                            placeholder="Search...">
-                        <i data-feather="search" class="search__icon dark:text-slate-500"></i>
-                    </div>
-                    <a class="notification sm:hidden" href=""> <i data-feather="search"
-                            class="notification__icon dark:text-slate-500"></i> </a>
-                    <div class="search-result">
-                        <div class="search-result__content">
-                            <div class="search-result__content__title">Pages</div>
-                            <div class="mb-5">
-                                <a href="" class="flex items-center">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-success/20 dark:bg-success/10 text-success">
-                                        <i class="w-4 h-4" data-feather="inbox"></i> </div>
-                                    <div class="ml-3">Mail Settings</div>
-                                </a>
-                                <a href="" class="flex items-center mt-2">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-pending/10 text-pending">
-                                        <i class="w-4 h-4" data-feather="users"></i> </div>
-                                    <div class="ml-3">Users & Permissions</div>
-                                </a>
-                                <a href="" class="flex items-center mt-2">
-                                    <div
-                                        class="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 dark:bg-primary/20 text-primary/80">
-                                        <i class="w-4 h-4" data-feather="credit-card"></i> </div>
-                                    <div class="ml-3">Transactions Report</div>
-                                </a>
-                            </div>
-                            <div class="search-result__content__title">Users</div>
-                            <div class="mb-5">
-                                <a href="" class="flex items-center mt-2">
-                                    <div class="w-8 h-8 image-fit">
-                                        <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                            src="dist/images/profile-9.jpg">
+                        <div class="d-flex order-lg-2 ms-auto header-right-icons">
+                            <!-- SEARCH -->
+                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4"
+                                aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon fe fe-more-vertical"></span>
+                            </button>
+                            <div class="p-0 navbar navbar-collapse responsive-navbar">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                                    <div class="d-flex order-lg-2">
+                                        <div class="dropdown d-lg-none d-flex">
+                                            <a href="javascript:void(0)" class="nav-link icon" data-bs-toggle="dropdown">
+                                                <i class="fe fe-search"></i>
+                                            </a>
+                                            <div class="dropdown-menu header-search dropdown-menu-start">
+                                                <div class="p-2 input-group w-100">
+                                                    <input type="text" class="form-control" placeholder="Search....">
+                                                    <div class="input-group-text btn btn-primary">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex country">
+                                            <a class="text-center nav-link icon" data-bs-target="#country-selector"
+                                                data-bs-toggle="modal">
+                                                <i class="fe fe-globe"></i><span
+                                                    class="fs-16 ms-2 d-none d-xl-block">English</span>
+                                            </a>
+                                        </div>
+                                        <!-- COUNTRY -->
+                                        <div class="d-flex country">
+                                            <a class="nav-link icon theme-layout nav-link-bg layout-setting">
+                                                <span class="dark-layout"><i class="fe fe-moon"></i></span>
+                                                <span class="light-layout"><i class="fe fe-sun"></i></span>
+                                            </a>
+                                        </div>
+                                        <!-- Theme-Layout -->
+                                        <div class="dropdown d-flex shopping-cart">
+                                            <a class="text-center nav-link icon" data-bs-toggle="dropdown">
+                                                <i class="fe fe-shopping-cart"></i><span class="badge bg-secondary header-badge">4</span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <div class="drop-heading border-bottom">
+                                                    <div class="d-flex">
+                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark"> My Shopping Cart</h6>
+                                                        <div class="ms-auto">
+                                                            <span class="badge bg-danger-transparent header-badge text-danger fs-14">Hurry Up!</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="header-dropdown-list message-menu">
+                                                    <div class="p-4 dropdown-item d-flex">
+                                                        <a href="cart.html" class="open-file"></a>
+                                                        <span
+                                                            class="avatar avatar-xl br-5 me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/pngs/4.jpg') }}"></span>
+                                                        <div class="wd-50p">
+                                                            <h5 class="mb-1">Flower Pot for Home Decor</h5>
+                                                            <span>Status: <span class="text-success">In Stock</span></span>
+                                                            <p class="mb-0 fs-13 text-muted">Quantity: 01</p>
+                                                        </div>
+                                                        <div class="ms-auto text-end d-flex fs-16">
+                                                            <span class="px-4 fs-16 text-dark d-none d-sm-block">
+                                                                $438
+                                                            </span>
+                                                            <a href="javascript:void(0)" class="p-0 fs-16 btn cart-trash">
+                                                                <i class="p-2 border fe fe-trash-2 text-danger brround d-block"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-4 dropdown-item d-flex">
+                                                        <a href="cart.html" class="open-file"></a>
+                                                        <span
+                                                            class="avatar avatar-xl br-5 me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/pngs/6.jpg') }}"></span>
+                                                        <div class="wd-50p">
+                                                            <h5 class="mb-1">Black Digital Camera</h5>
+                                                            <span>Status: <span class="text-danger">Out Stock</span></span>
+                                                            <p class="mb-0 fs-13 text-muted">Quantity: 06</p>
+                                                        </div>
+                                                        <div class="ms-auto text-end d-flex">
+                                                            <span class="px-4 fs-16 text-dark d-none d-sm-block">
+                                                                $867
+                                                            </span>
+                                                            <a href="javascript:void(0)" class="p-0 fs-16 btn cart-trash">
+                                                                <i class="p-2 border fe fe-trash-2 text-danger brround d-block"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-4 dropdown-item d-flex">
+                                                        <a href="cart.html" class="open-file"></a>
+                                                        <span
+                                                            class="avatar avatar-xl br-5 me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/pngs/8.jpg') }}"></span>
+                                                        <div class="wd-50p">
+                                                            <h5 class="mb-1">Stylish Rockerz 255 Ear Pods</h5>
+                                                            <span>Status: <span class="text-success">In Stock</span></span>
+                                                            <p class="mb-0 fs-13 text-muted">Quantity: 05</p>
+                                                        </div>
+                                                        <div class="ms-auto text-end d-flex">
+                                                            <span class="px-4 fs-16 text-dark d-none d-sm-block">
+                                                                $323
+                                                            </span>
+                                                            <a href="javascript:void(0)" class="p-0 fs-16 btn cart-trash">
+                                                                <i class="p-2 border fe fe-trash-2 text-danger brround d-block"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-4 dropdown-item d-flex">
+                                                        <a href="cart.html" class="open-file"></a>
+                                                        <span
+                                                            class="avatar avatar-xl br-5 me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/pngs/1.jpg') }}"></span>
+                                                        <div class="wd-50p">
+                                                            <h5 class="mb-1">Women Party Wear Dress</h5>
+                                                            <span>Status: <span class="text-success">In Stock</span></span>
+                                                            <p class="mb-0 fs-13 text-muted">Quantity: 05</p>
+                                                        </div>
+                                                        <div class="ms-auto text-end d-flex">
+                                                            <span class="px-4 fs-16 text-dark d-none d-sm-block">
+                                                                $867
+                                                            </span>
+                                                            <a href="javascript:void(0)" class="p-0 fs-16 btn cart-trash">
+                                                                <i class="p-2 border fe fe-trash-2 text-danger brround d-block"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="p-4 dropdown-item d-flex">
+                                                        <a href="cart.html" class="open-file"></a>
+                                                        <span
+                                                            class="avatar avatar-xl br-5 me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/pngs/3.jpg') }}"></span>
+                                                        <div class="wd-50p">
+                                                            <h5 class="mb-1">Running Shoes for men</h5>
+                                                            <span>Status: <span class="text-success">In Stock</span></span>
+                                                            <p class="mb-0 fs-13 text-muted">Quantity: 05</p>
+                                                        </div>
+                                                        <div class="ms-auto text-end d-flex">
+                                                            <span class="px-4 fs-16 text-dark d-none d-sm-block">
+                                                                $456
+                                                            </span>
+                                                            <a href="javascript:void(0)" class="p-0 fs-16 btn cart-trash">
+                                                                <i class="p-2 border fe fe-trash-2 text-danger brround d-block"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="m-0 dropdown-divider"></div>
+                                                <div class="dropdown-footer">
+                                                    <a class="py-2 btn btn-primary btn-pill w-sm btn-sm" href="checkout.html"><i class="fe fe-check-circle"></i> Checkout</a>
+                                                    <span class="p-2 float-end fs-17 fw-semibold">Total: $6789</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- CART -->
+                                        <div class="dropdown d-flex">
+                                            <a class="nav-link icon full-screen-link nav-link-bg">
+                                                <i class="fe fe-minimize fullscreen-button"></i>
+                                            </a>
+                                        </div>
+                                        <!-- FULL-SCREEN -->
+                                        <div class="dropdown d-flex notifications">
+                                            <a class="nav-link icon" data-bs-toggle="dropdown"><i
+                                                    class="fe fe-bell"></i><span class=" pulse"></span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <div class="drop-heading border-bottom">
+                                                    <div class="d-flex">
+                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">Notifications
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <div class="notifications-menu">
+                                                    <a class="dropdown-item d-flex" href="notify-list.html">
+                                                        <div class="me-3 notifyimg bg-primary brround box-shadow-primary">
+                                                            <i class="fe fe-mail"></i>
+                                                        </div>
+                                                        <div class="mt-1 wd-80p">
+                                                            <h5 class="mb-1 notification-label">New Application received
+                                                            </h5>
+                                                            <span class="notification-subtext">3 days ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="notify-list.html">
+                                                        <div class="me-3 notifyimg bg-secondary brround box-shadow-secondary">
+                                                            <i class="fe fe-check-circle"></i>
+                                                        </div>
+                                                        <div class="mt-1 wd-80p">
+                                                            <h5 class="mb-1 notification-label">Project has been
+                                                                approved</h5>
+                                                            <span class="notification-subtext">2 hours ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="notify-list.html">
+                                                        <div class="me-3 notifyimg bg-success brround box-shadow-success">
+                                                            <i class="fe fe-shopping-cart"></i>
+                                                        </div>
+                                                        <div class="mt-1 wd-80p">
+                                                            <h5 class="mb-1 notification-label">Your Product Delivered
+                                                            </h5>
+                                                            <span class="notification-subtext">30 min ago</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="notify-list.html">
+                                                        <div class="me-3 notifyimg bg-pink brround box-shadow-pink">
+                                                            <i class="fe fe-user-plus"></i>
+                                                        </div>
+                                                        <div class="mt-1 wd-80p">
+                                                            <h5 class="mb-1 notification-label">Friend Requests</h5>
+                                                            <span class="notification-subtext">1 day ago</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="m-0 dropdown-divider"></div>
+                                                <a href="notify-list.html"
+                                                    class="p-3 text-center dropdown-item text-muted">View all
+                                                    Notification</a>
+                                            </div>
+                                        </div>
+                                        <!-- NOTIFICATIONS -->
+                                        <div class="dropdown d-flex message">
+                                            <a class="text-center nav-link icon" data-bs-toggle="dropdown">
+                                                <i class="fe fe-message-square"></i><span class="pulse-danger"></span>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <div class="drop-heading border-bottom">
+                                                    <div class="d-flex">
+                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">You have 5
+                                                            Messages</h6>
+                                                        <div class="ms-auto">
+                                                            <a href="javascript:void(0)" class="p-0 text-muted fs-12">make all unread</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="message-menu message-menu-scroll">
+                                                    <a class="dropdown-item d-flex" href="chat.html">
+                                                        <span
+                                                            class="avatar avatar-md brround me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/users/1.jpg') }}"></span>
+                                                        <div class="wd-90p">
+                                                            <div class="d-flex">
+                                                                <h5 class="mb-1">Peter Theil</h5>
+                                                                <small class="text-muted ms-auto text-end">
+                                                                    6:45 am
+                                                                </small>
+                                                            </div>
+                                                            <span>Commented on file Guest list....</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="chat.html">
+                                                        <span
+                                                            class="avatar avatar-md brround me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/users/15.jpg') }}"></span>
+                                                        <div class="wd-90p">
+                                                            <div class="d-flex">
+                                                                <h5 class="mb-1">Abagael Luth</h5>
+                                                                <small class="text-muted ms-auto text-end">
+                                                                    10:35 am
+                                                                </small>
+                                                            </div>
+                                                            <span>New Meetup Started......</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="chat.html">
+                                                        <span
+                                                            class="avatar avatar-md brround me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/users/12.jpg') }}"></span>
+                                                        <div class="wd-90p">
+                                                            <div class="d-flex">
+                                                                <h5 class="mb-1">Brizid Dawson</h5>
+                                                                <small class="text-muted ms-auto text-end">
+                                                                    2:17 pm
+                                                                </small>
+                                                            </div>
+                                                            <span>Brizid is in the Warehouse...</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="chat.html">
+                                                        <span
+                                                            class="avatar avatar-md brround me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/users/4.jpg') }}"></span>
+                                                        <div class="wd-90p">
+                                                            <div class="d-flex">
+                                                                <h5 class="mb-1">Shannon Shaw</h5>
+                                                                <small class="text-muted ms-auto text-end">
+                                                                    7:55 pm
+                                                                </small>
+                                                            </div>
+                                                            <span>New Product Realease......</span>
+                                                        </div>
+                                                    </a>
+                                                    <a class="dropdown-item d-flex" href="chat.html">
+                                                        <span
+                                                            class="avatar avatar-md brround me-3 align-self-center cover-image"
+                                                            data-bs-image-src="{{ asset('admin/assets/images/users/3.jpg') }}"></span>
+                                                        <div class="wd-90p">
+                                                            <div class="d-flex">
+                                                                <h5 class="mb-1">Cherry Blossom</h5>
+                                                                <small class="text-muted ms-auto text-end">
+                                                                    7:55 pm
+                                                                </small>
+                                                            </div>
+                                                            <span>You have appointment on......</span>
+                                                        </div>
+                                                    </a>
+
+                                                </div>
+                                                <div class="m-0 dropdown-divider"></div>
+                                                <a href="javascript:void(0)" class="p-3 text-center dropdown-item text-muted">See all
+                                                    Messages</a>
+                                            </div>
+                                        </div>
+                                        <!-- MESSAGE-BOX -->
+                                        <div class="dropdown d-flex header-settings">
+                                            <a href="javascript:void(0);" class="nav-link icon"
+                                                data-bs-toggle="sidebar-right" data-target=".sidebar-right">
+                                                <i class="fe fe-align-right"></i>
+                                            </a>
+                                        </div>
+                                        <!-- SIDE-MENU -->
+                                        <div class="dropdown d-flex profile-1">
+                                            <a href="javascript:void(0)" data-bs-toggle="dropdown" class="leading-none nav-link d-flex">
+                                                <img src="{{ asset('admin/assets/images/users/21.jpg') }}" alt="profile-user"
+                                                    class="avatar profile-user brround cover-image">
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                                <div class="drop-heading">
+                                                    <div class="text-center">
+                                                        <h5 class="mb-0 text-dark fs-14 fw-semibold">Percy Kewshun</h5>
+                                                        <small class="text-muted">Senior Admin</small>
+                                                    </div>
+                                                </div>
+                                                <div class="m-0 dropdown-divider"></div>
+                                                <a class="dropdown-item" href="profile.html">
+                                                    <i class="dropdown-icon fe fe-user"></i> Profile
+                                                </a>
+                                                <a class="dropdown-item" href="email-inbox.html">
+                                                    <i class="dropdown-icon fe fe-mail"></i> Inbox
+                                                    <span class="badge bg-danger rounded-pill float-end">5</span>
+                                                </a>
+                                                <a class="dropdown-item" href="lockscreen.html">
+                                                    <i class="dropdown-icon fe fe-lock"></i> Lockscreen
+                                                </a>
+                                                <a class="dropdown-item" href="login.html">
+                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="ml-3">Kevin Spacey</div>
-                                    <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">
-                                        kevinspacey@left4code.com</div>
-                                </a>
-                                <a href="" class="flex items-center mt-2">
-                                    <div class="w-8 h-8 image-fit">
-                                        <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                            src="dist/images/profile-12.jpg">
-                                    </div>
-                                    <div class="ml-3">Denzel Washington</div>
-                                    <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">
-                                        denzelwashington@left4code.com</div>
-                                </a>
-                                <a href="" class="flex items-center mt-2">
-                                    <div class="w-8 h-8 image-fit">
-                                        <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                            src="dist/images/profile-13.jpg">
-                                    </div>
-                                    <div class="ml-3">Al Pacino</div>
-                                    <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">
-                                        alpacino@left4code.com</div>
-                                </a>
-                                <a href="" class="flex items-center mt-2">
-                                    <div class="w-8 h-8 image-fit">
-                                        <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                            src="dist/images/profile-6.jpg">
-                                    </div>
-                                    <div class="ml-3">John Travolta</div>
-                                    <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">
-                                        johntravolta@left4code.com</div>
-                                </a>
-                            </div>
-                            <div class="search-result__content__title">Products</div>
-                            <a href="" class="flex items-center mt-2">
-                                <div class="w-8 h-8 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/preview-5.jpg">
-                                </div>
-                                <div class="ml-3">Sony A7 III</div>
-                                <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">Photography</div>
-                            </a>
-                            <a href="" class="flex items-center mt-2">
-                                <div class="w-8 h-8 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/preview-9.jpg">
-                                </div>
-                                <div class="ml-3">Samsung Galaxy S20 Ultra</div>
-                                <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">Smartphone &amp;
-                                    Tablet</div>
-                            </a>
-                            <a href="" class="flex items-center mt-2">
-                                <div class="w-8 h-8 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/preview-10.jpg">
-                                </div>
-                                <div class="ml-3">Dell XPS 13</div>
-                                <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">PC &amp; Laptop
-                                </div>
-                            </a>
-                            <a href="" class="flex items-center mt-2">
-                                <div class="w-8 h-8 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/preview-15.jpg">
-                                </div>
-                                <div class="ml-3">Sony Master Series A9G</div>
-                                <div class="w-48 ml-auto text-xs text-right truncate text-slate-500">Electronic</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- END: Search -->
-                <!-- BEGIN: Notifications -->
-                <div class="mr-auto intro-x dropdown sm:mr-6">
-                    <div class="cursor-pointer dropdown-toggle notification notification--bullet" role="button"
-                        aria-expanded="false" data-tw-toggle="dropdown"> <i data-feather="bell"
-                            class="notification__icon dark:text-slate-500"></i> </div>
-                    <div class="pt-2 notification-content dropdown-menu">
-                        <div class="notification-content__box dropdown-content">
-                            <div class="notification-content__title">Notifications</div>
-                            <div class="relative flex items-center cursor-pointer ">
-                                <div class="flex-none w-12 h-12 mr-1 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/profile-9.jpg">
-                                    <div
-                                        class="absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full bg-success dark:border-darkmode-600">
-                                    </div>
-                                </div>
-                                <div class="ml-2 overflow-hidden">
-                                    <div class="flex items-center">
-                                        <a href="javascript:;" class="mr-5 font-medium truncate">Kevin Spacey</a>
-                                        <div class="ml-auto text-xs text-slate-400 whitespace-nowrap">01:10 PM</div>
-                                    </div>
-                                    <div class="w-full truncate text-slate-500 mt-0.5">There are many variations of
-                                        passages of Lorem Ipsum available, but the majority have suffered alteration in
-                                        some form, by injected humour, or randomi</div>
-                                </div>
-                            </div>
-                            <div class="relative flex items-center mt-5 cursor-pointer">
-                                <div class="flex-none w-12 h-12 mr-1 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/profile-12.jpg">
-                                    <div
-                                        class="absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full bg-success dark:border-darkmode-600">
-                                    </div>
-                                </div>
-                                <div class="ml-2 overflow-hidden">
-                                    <div class="flex items-center">
-                                        <a href="javascript:;" class="mr-5 font-medium truncate">Denzel
-                                            Washington</a>
-                                        <div class="ml-auto text-xs text-slate-400 whitespace-nowrap">05:09 AM</div>
-                                    </div>
-                                    <div class="w-full truncate text-slate-500 mt-0.5">There are many variations of
-                                        passages of Lorem Ipsum available, but the majority have suffered alteration in
-                                        some form, by injected humour, or randomi</div>
-                                </div>
-                            </div>
-                            <div class="relative flex items-center mt-5 cursor-pointer">
-                                <div class="flex-none w-12 h-12 mr-1 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/profile-13.jpg">
-                                    <div
-                                        class="absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full bg-success dark:border-darkmode-600">
-                                    </div>
-                                </div>
-                                <div class="ml-2 overflow-hidden">
-                                    <div class="flex items-center">
-                                        <a href="javascript:;" class="mr-5 font-medium truncate">Al Pacino</a>
-                                        <div class="ml-auto text-xs text-slate-400 whitespace-nowrap">05:09 AM</div>
-                                    </div>
-                                    <div class="w-full truncate text-slate-500 mt-0.5">Lorem Ipsum is simply dummy
-                                        text of the printing and typesetting industry. Lorem Ipsum has been the
-                                        industry&#039;s standard dummy text ever since the 1500</div>
-                                </div>
-                            </div>
-                            <div class="relative flex items-center mt-5 cursor-pointer">
-                                <div class="flex-none w-12 h-12 mr-1 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/profile-6.jpg">
-                                    <div
-                                        class="absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full bg-success dark:border-darkmode-600">
-                                    </div>
-                                </div>
-                                <div class="ml-2 overflow-hidden">
-                                    <div class="flex items-center">
-                                        <a href="javascript:;" class="mr-5 font-medium truncate">John Travolta</a>
-                                        <div class="ml-auto text-xs text-slate-400 whitespace-nowrap">05:09 AM</div>
-                                    </div>
-                                    <div class="w-full truncate text-slate-500 mt-0.5">It is a long established fact
-                                        that a reader will be distracted by the readable content of a page when looking
-                                        at its layout. The point of using Lorem </div>
-                                </div>
-                            </div>
-                            <div class="relative flex items-center mt-5 cursor-pointer">
-                                <div class="flex-none w-12 h-12 mr-1 image-fit">
-                                    <img alt="Tinker Tailwind HTML Admin Template" class="rounded-full"
-                                        src="dist/images/profile-15.jpg">
-                                    <div
-                                        class="absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full bg-success dark:border-darkmode-600">
-                                    </div>
-                                </div>
-                                <div class="ml-2 overflow-hidden">
-                                    <div class="flex items-center">
-                                        <a href="javascript:;" class="mr-5 font-medium truncate">Russell Crowe</a>
-                                        <div class="ml-auto text-xs text-slate-400 whitespace-nowrap">05:09 AM</div>
-                                    </div>
-                                    <div class="w-full truncate text-slate-500 mt-0.5">Contrary to popular belief,
-                                        Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                                        Latin literature from 45 BC, making it over 20</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- END: Notifications -->
-                <!-- BEGIN: Account Menu -->
-                <div class="w-8 h-8 intro-x dropdown">
-                    <div class="w-8 h-8 overflow-hidden rounded-full shadow-lg dropdown-toggle image-fit zoom-in"
-                        role="button" aria-expanded="false" data-tw-toggle="dropdown">
-                        <img alt="Tinker Tailwind HTML Admin Template" src="dist/images/profile-7.jpg">
+            </div>
+            <!-- /app-Header -->
+
+            <!--APP-SIDEBAR-->
+            <div class="sticky">
+                <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+                <div class="app-sidebar">
+                    <div class="side-header">
+                        <a class="header-brand1" href="index.html">
+                            <img src="{{ asset('admin/assets/images/brand/logo.png') }}" class="header-brand-img desktop-logo" alt="logo">
+                            <img src="{{ asset('admin/assets/images/brand/logo-1.png') }}" class="header-brand-img toggle-logo"
+                                alt="logo">
+                            <img src="{{ asset('admin/assets/images/brand/logo-2.png') }}" class="header-brand-img light-logo" alt="logo">
+                            <img src="{{ asset('admin/assets/images/brand/logo-3.png') }}" class="header-brand-img light-logo1"
+                                alt="logo">
+                        </a>
+                        <!-- LOGO -->
                     </div>
-                    <div class="w-56 dropdown-menu">
-                        <ul class="text-white dropdown-content bg-primary">
-                            <li class="p-2">
-                                <div class="font-medium">Kevin Spacey</div>
-                                <div class="text-xs text-white/70 mt-0.5 dark:text-slate-500">Backend Engineer</div>
+                    <div class="main-sidemenu">
+                        <div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg"
+                                fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
+                            </svg></div>
+                        <ul class="side-menu">
+                            <li class="sub-category">
+                                <h3>Main</h3>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item has-link" data-bs-toggle="slide" href="index.html"><i
+                                        class="side-menu__icon fe fe-home"></i><span
+                                        class="side-menu__label">Dashboard</span></a>
+                            </li>
+                            <li class="sub-category">
+                                <h3>UI Kit</h3>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-slack"></i><span
+                                        class="side-menu__label">Apps</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Apps</a></li>
+                                    <li><a href="cards.html" class="slide-item"> Cards design</a></li>
+                                    <li><a href="calendar.html" class="slide-item"> Default calendar</a></li>
+                                    <li><a href="calendar2.html" class="slide-item"> Full calendar</a></li>
+                                    <li><a href="chat.html" class="slide-item"> Chat</a></li>
+                                    <li><a href="notify.html" class="slide-item"> Notifications</a></li>
+                                    <li><a href="sweetalert.html" class="slide-item"> Sweet alerts</a></li>
+                                    <li><a href="rangeslider.html" class="slide-item"> Range slider</a></li>
+                                    <li><a href="scroll.html" class="slide-item"> Content Scroll bar</a></li>
+                                    <li><a href="loaders.html" class="slide-item"> Loaders</a></li>
+                                    <li><a href="counters.html" class="slide-item"> Counters</a></li>
+                                    <li><a href="rating.html" class="slide-item"> Rating</a></li>
+                                    <li><a href="timeline.html" class="slide-item"> Timeline</a></li>
+                                    <li><a href="treeview.html" class="slide-item"> Treeview</a></li>
+                                    <li><a href="chart.html" class="slide-item"> Charts</a></li>
+                                    <li><a href="footers.html" class="slide-item"> Footers</a></li>
+                                    <li><a href="users-list.html" class="slide-item"> User List</a></li>
+                                    <li><a href="search.html" class="slide-item">Search</a></li>
+                                    <li><a href="crypto-currencies.html" class="slide-item"> Crypto-currencies</a></li>
+                                    <li><a href="widgets.html" class="slide-item"> Widgets</a></li>
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-package"></i><span
+                                        class="side-menu__label">Bootstrap</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu mega-slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Bootstrap</a></li>
+                                    <div class="mega-menu">
+                                        <div class="">
+                                            <ul>
+                                                <li><a href="alerts.html" class="slide-item"> Alerts</a></li>
+                                                <li><a href="buttons.html" class="slide-item"> Buttons</a></li>
+                                                <li><a href="colors.html" class="slide-item"> Colors</a></li>
+                                                <li><a href="avatarsquare.html" class="slide-item"> Avatar Square</a></li>
+                                                <li><a href="avatar-radius.html" class="slide-item"> Avatar Radius</a></li>
+                                                <li><a href="avatar-round.html" class="slide-item"> Avatar Rounded</a></li>
+                                                <li><a href="dropdown.html" class="slide-item"> Dropdowns</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="">
+                                            <ul>
+                                                <li><a href="listgroup.html" class="slide-item"> List Group</a></li>
+                                                <li><a href="tags.html" class="slide-item"> Tags</a></li>
+                                                <li><a href="pagination.html" class="slide-item"> Pagination</a></li>
+                                                <li><a href="navigation.html" class="slide-item"> Navigation</a></li>
+                                                <li><a href="typography.html" class="slide-item"> Typography</a></li>
+                                                <li><a href="breadcrumbs.html" class="slide-item"> Breadcrumbs</a></li>
+                                                <li><a href="badge.html" class="slide-item"> Badges / Pills</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="">
+                                            <ul>
+                                                <li><a href="panels.html" class="slide-item"> Panels</a></li>
+                                                <li><a href="thumbnails.html" class="slide-item"> Thumbnails</a></li>
+                                                <li><a href="offcanvas.html" class="slide-item"> Offcanvas</a></li>
+                                                <li><a href="toast.html" class="slide-item"> toast</a></li>
+                                                <li><a href="scrollspy.html" class="slide-item"> Scrollspy</a></li>
+                                                <li><a href="mediaobject.html" class="slide-item"> Media Object</a></li>
+                                                <li><a href="accordion.html" class="slide-item"> Accordions </a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="">
+                                            <ul>
+                                                <li><a href="tabs.html" class="slide-item"> Tabs</a></li>
+                                                <li><a href="modal.html" class="slide-item"> Modal</a></li>
+                                                <li><a href="tooltipandpopover.html" class="slide-item"> Tooltip and popover</a></li>
+                                                <li><a href="progress.html" class="slide-item"> Progress</a></li>
+                                                <li><a href="carousel.html" class="slide-item"> Carousels</a></li>
+                                                <li><a href="ribbons.html" class="slide-item"> Ribbons</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </ul>
                             </li>
                             <li>
-                                <hr class="dropdown-divider border-white/[0.08]">
+                                <a class="side-menu__item has-link" href="landing-page.html" target="_blank"><i
+                                        class="side-menu__icon fe fe-zap"></i><span
+                                        class="side-menu__label">Landing Page</span><span class="pb-1 badge bg-green br-5 side-badge blink-text">New</span></a>
                             </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-feather="user"
-                                        class="w-4 h-4 mr-2"></i> Profile </a>
+                            <li class="sub-category">
+                                <h3>Pre-build Pages</h3>
                             </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-feather="edit"
-                                        class="w-4 h-4 mr-2"></i> Add Account </a>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-layers"></i><span
+                                        class="side-menu__label">Pages</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li>
+                                    <li><a href="profile.html" class="slide-item"> Profile</a></li>
+                                    <li><a href="editprofile.html" class="slide-item"> Edit Profile</a></li>
+                                    <li><a href="notify-list.html" class="slide-item"> Notifications List</a></li>
+                                    <li><a href="email-compose.html" class="slide-item"> Mail-Compose</a></li>
+                                    <li><a href="email-inbox.html" class="slide-item"> Mail-Inbox</a></li>
+                                    <li><a href="email-read.html" class="slide-item"> Mail-Read</a></li>
+                                    <li><a href="gallery.html" class="slide-item"> Gallery</a></li>
+                                    <li class="sub-slide">
+                                        <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span
+                                                class="sub-side-menu__label">Forms</span><i
+                                                class="sub-angle fe fe-chevron-right"></i></a>
+                                        <ul class="sub-slide-menu">
+                                            <li><a href="form-elements.html" class="sub-slide-item"> Form Elements</a>
+                                            </li>
+                                            <li><a href="form-layouts.html" class="sub-slide-item"> Form Layouts</a>
+                                            </li>
+                                            <li><a href="form-advanced.html" class="sub-slide-item"> Form Advanced</a>
+                                            </li>
+                                            <li><a href="form-editor.html" class="sub-slide-item"> Form Editor</a></li>
+                                            <li><a href="form-wizard.html" class="sub-slide-item"> Form Wizard</a></li>
+                                            <li><a href="form-validation.html" class="sub-slide-item"> Form Validation</a></li>
+                                            <li><a href="form-input-spinners.html" class="sub-slide-item"> Form Input Spinners</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-slide">
+                                        <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span
+                                                class="sub-side-menu__label">Tables</span><i
+                                                class="sub-angle fe fe-chevron-right"></i></a>
+                                        <ul class="sub-slide-menu">
+                                            <li><a href="tables.html" class="sub-slide-item">Default table</a></li>
+                                            <li><a href="datatable.html" class="sub-slide-item"> Data Tables</a></li>
+                                            <li><a href="edit-table.html" class="sub-slide-item"> Edit Tables</a></li>
+                                            <li><a href="extension-tables.html" class="sub-slide-item"> Extension Tables</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-slide">
+                                        <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span
+                                                class="sub-side-menu__label">Extension</span><i
+                                                class="sub-angle fe fe-chevron-right"></i></a>
+                                        <ul class="sub-slide-menu">
+                                            <li><a href="about.html" class="sub-slide-item"> About Company</a></li>
+                                            <li><a href="services.html" class="sub-slide-item"> Services</a></li>
+                                            <li><a href="faq.html" class="sub-slide-item"> FAQS</a></li>
+                                            <li><a href="terms.html" class="sub-slide-item"> Terms</a></li>
+                                            <li><a href="invoice.html" class="sub-slide-item"> Invoice</a></li>
+                                            <li><a href="pricing.html" class="sub-slide-item"> Pricing Tables</a></li>
+                                            <li><a href="settings.html" class="sub-slide-item"> Settings</a></li>
+                                            <li><a href="blog.html" class="sub-slide-item"> Blog</a></li>
+                                            <li><a href="blog-details.html" class="sub-slide-item"> Blog Details</a>
+                                            </li>
+                                            <li><a href="blog-post.html" class="sub-slide-item"> Blog Post</a></li>
+                                            <li><a href="empty.html" class="sub-slide-item"> Empty Page</a></li>
+                                            <li><a href="construction.html" class="sub-slide-item"> Under
+                                                    Construction</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="switcher-1.html" class="slide-item"> Switcher</a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i data-feather="lock"
-                                        class="w-4 h-4 mr-2"></i> Reset Password </a>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-shopping-bag"></i><span
+                                        class="side-menu__label">E-Commerce</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">E-Commerce</a></li>
+                                    <li><a href="shop.html" class="slide-item"> Shop</a></li>
+                                    <li><a href="shop-description.html" class="slide-item"> Product Details</a></li>
+                                    <li><a href="cart.html" class="slide-item"> Shopping Cart</a></li>
+                                    <li><a href="add-product.html" class="slide-item"> Add Product</a></li>
+                                    <li><a href="wishlist.html" class="slide-item"> Wishlist</a></li>
+                                    <li><a href="checkout.html" class="slide-item"> Checkout</a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i
-                                        data-feather="help-circle" class="w-4 h-4 mr-2"></i> Help </a>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-folder"></i><span class="side-menu__label">File
+                                        Manager</span><span class="badge bg-pink side-badge">4</span><i
+                                        class="angle fe fe-chevron-right hor-angle"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">File Manager</a></li>
+                                    <li><a href="file-manager.html" class="slide-item"> File Manager</a></li>
+                                    <li><a href="filemanager-list.html" class="slide-item"> File Manager List</a></li>
+                                    <li><a href="filemanager-details.html" class="slide-item"> File Details</a></li>
+                                    <li><a href="file-attachments.html" class="slide-item"> File Attachments</a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <hr class="dropdown-divider border-white/[0.08]">
+                            <li class="sub-category">
+                                <h3>Misc Pages</h3>
                             </li>
-                            <li>
-                                <a href="" class="dropdown-item hover:bg-white/5"> <i
-                                        data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-users"></i><span
+                                        class="side-menu__label">Authentication</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Authentication</a></li>
+                                    <li><a href="login.html" class="slide-item"> Login</a></li>
+                                    <li><a href="register.html" class="slide-item"> Register</a></li>
+                                    <li><a href="forgot-password.html" class="slide-item"> Forgot Password</a></li>
+                                    <li><a href="lockscreen.html" class="slide-item"> Lock screen</a></li>
+                                    <li class="sub-slide">
+                                        <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span
+                                                class="sub-side-menu__label">Error Pages</span><i
+                                                class="sub-angle fe fe-chevron-right"></i></a>
+                                        <ul class="sub-slide-menu">
+                                            <li><a href="400.html" class="sub-slide-item"> 400</a></li>
+                                            <li><a href="401.html" class="sub-slide-item"> 401</a></li>
+                                            <li><a href="403.html" class="sub-slide-item"> 403</a></li>
+                                            <li><a href="404.html" class="sub-slide-item"> 404</a></li>
+                                            <li><a href="500.html" class="sub-slide-item"> 500</a></li>
+                                            <li><a href="503.html" class="sub-slide-item"> 503</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
+                                    <i class="side-menu__icon fe fe-cpu"></i>
+                                    <span class="side-menu__label">Submenu items</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Submenu items</a></li>
+                                    <li><a href="javascript:void(0)" class="slide-item">Submenu-1</a></li>
+                                    <li class="sub-slide">
+                                        <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span
+                                                class="sub-side-menu__label">Submenu-2</span><i
+                                                class="sub-angle fe fe-chevron-right"></i></a>
+                                        <ul class="sub-slide-menu">
+                                            <li><a class="sub-slide-item" href="javascript:void(0)">Submenu-2.1</a></li>
+                                            <li><a class="sub-slide-item" href="javascript:void(0)">Submenu-2.2</a></li>
+                                            <li class="sub-slide2">
+                                                <a class="sub-side-menu__item2" href="javascript:void(0)"
+                                                    data-bs-toggle="sub-slide2"><span
+                                                        class="sub-side-menu__label2">Submenu-2.3</span><i
+                                                        class="sub-angle2 fe fe-chevron-right"></i></a>
+                                                <ul class="sub-slide-menu2">
+                                                    <li><a href="javascript:void(0)" class="sub-slide-item2">Submenu-2.3.1</a></li>
+                                                    <li><a href="javascript:void(0)" class="sub-slide-item2">Submenu-2.3.2</a></li>
+                                                    <li><a href="javascript:void(0)" class="sub-slide-item2">Submenu-2.3.3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="sub-slide-item" href="javascript:void(0)">Submenu-2.4</a></li>
+                                            <li><a class="sub-slide-item" href="javascript:void(0)">Submenu-2.5</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sub-category">
+                                <h3>General</h3>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-map-pin"></i><span
+                                        class="side-menu__label">Maps</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Maps</a></li>
+                                    <li><a href="maps1.html" class="slide-item">Leaflet Maps</a></li>
+                                    <li><a href="maps2.html" class="slide-item">Mapel Maps</a></li>
+                                    <li><a href="maps.html" class="slide-item">Vector Maps</a></li>
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-bar-chart-2"></i><span
+                                        class="side-menu__label">Charts</span><span
+                                        class="badge bg-secondary side-badge">6</span><i
+                                        class="angle fe fe-chevron-right hor-angle"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Charts</a></li>
+                                    <li><a href="chart-chartist.html" class="slide-item">Chart Js</a></li>
+                                    <li><a href="chart-flot.html" class="slide-item"> Flot Charts</a></li>
+                                    <li><a href="chart-echart.html" class="slide-item"> ECharts</a></li>
+                                    <li><a href="chart-morris.html" class="slide-item"> Morris Charts</a></li>
+                                    <li><a href="chart-nvd3.html" class="slide-item"> Nvd3 Charts</a></li>
+                                    <li><a href="charts.html" class="slide-item"> C3 Bar Charts</a></li>
+                                    <li><a href="chart-line.html" class="slide-item"> C3 Line Charts</a></li>
+                                    <li><a href="chart-donut.html" class="slide-item"> C3 Donut Charts</a></li>
+                                    <li><a href="chart-pie.html" class="slide-item"> C3 Pie charts</a></li>
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-wind"></i><span
+                                        class="side-menu__label">Icons</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li class="side-menu-label1"><a href="javascript:void(0)">Icons</a></li>
+                                    <li><a href="icons.html" class="slide-item"> Font Awesome</a></li>
+                                    <li><a href="icons2.html" class="slide-item"> Material Design Icons</a></li>
+                                    <li><a href="icons3.html" class="slide-item"> Simple Line Icons</a></li>
+                                    <li><a href="icons4.html" class="slide-item"> Feather Icons</a></li>
+                                    <li><a href="icons5.html" class="slide-item"> Ionic Icons</a></li>
+                                    <li><a href="icons6.html" class="slide-item"> Flag Icons</a></li>
+                                    <li><a href="icons7.html" class="slide-item"> pe7 Icons</a></li>
+                                    <li><a href="icons8.html" class="slide-item"> Themify Icons</a></li>
+                                    <li><a href="icons9.html" class="slide-item">Typicons Icons</a></li>
+                                    <li><a href="icons10.html" class="slide-item">Weather Icons</a></li>
+                                    <li><a href="icons11.html" class="slide-item">Bootstrap Icons</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                                width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
+                            </svg></div>
+                    </div>
+                </div>
+                <!--/APP-SIDEBAR-->
+            </div>
+
+            <!--app-content open-->
+            <div class="mt-0 main-content app-content">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">Dashboard 01</h1>
+                            <div>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard 01</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!-- PAGE-HEADER END -->
+
+                        <!-- ROW-1 -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
+                                        <div class="overflow-hidden card">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="mt-2">
+                                                        <h6 class="">Total Users</h6>
+                                                        <h2 class="mb-0 number-font">44,278</h2>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <div class="mt-1 chart-wrapper">
+                                                            <canvas id="saleschart"
+                                                                class="h-8 w-9 chart-dropshadow"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-muted fs-12"><span class="text-secondary"><i
+                                                            class="fe fe-arrow-up-circle text-secondary"></i> 5%</span>
+                                                    Last week</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
+                                        <div class="overflow-hidden card">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="mt-2">
+                                                        <h6 class="">Total Profit</h6>
+                                                        <h2 class="mb-0 number-font">67,987</h2>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <div class="mt-1 chart-wrapper">
+                                                            <canvas id="leadschart"
+                                                                class="h-8 w-9 chart-dropshadow"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-muted fs-12"><span class="text-pink"><i
+                                                            class="fe fe-arrow-down-circle text-pink"></i> 0.75%</span>
+                                                    Last 6 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
+                                        <div class="overflow-hidden card">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="mt-2">
+                                                        <h6 class="">Total Expenses</h6>
+                                                        <h2 class="mb-0 number-font">$76,965</h2>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <div class="mt-1 chart-wrapper">
+                                                            <canvas id="profitchart"
+                                                                class="h-8 w-9 chart-dropshadow"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-muted fs-12"><span class="text-green"><i
+                                                            class="fe fe-arrow-up-circle text-green"></i> 0.9%</span>
+                                                    Last 9 days</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
+                                        <div class="overflow-hidden card">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="mt-2">
+                                                        <h6 class="">Total Cost</h6>
+                                                        <h2 class="mb-0 number-font">$59,765</h2>
+                                                    </div>
+                                                    <div class="ms-auto">
+                                                        <div class="mt-1 chart-wrapper">
+                                                            <canvas id="costchart"
+                                                                class="h-8 w-9 chart-dropshadow"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <span class="text-muted fs-12"><span class="text-warning"><i
+                                                            class="fe fe-arrow-up-circle text-warning"></i> 0.6%</span>
+                                                    Last year</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW-1 END -->
+
+                        <!-- ROW-2 -->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Sales Analytics</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mx-auto mb-4 text-center d-flex justify-content-center">
+                                            <div class="text-center d-flex justify-content-center me-3"><span
+                                                    class="my-auto dot-label bg-primary"></span>Total Sales</div>
+                                            <div class="text-center d-flex justify-content-center"><span
+                                                    class="my-auto dot-label bg-secondary"></span>Total Orders</div>
+                                        </div>
+                                        <div class="chartjs-wrapper-demo">
+                                            <canvas id="transactions" class="chart-dropshadow"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- COL END -->
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-3">
+                                <div class="overflow-hidden card">
+                                    <div class="pb-0 card-body bg-recentorder">
+                                        <h3 class="text-white card-title">Recent Orders</h3>
+                                        <div class="chartjs-wrapper-demo">
+                                            <canvas id="recentorders" class="chart-dropshadow"></canvas>
+                                        </div>
+                                    </div>
+                                    <div id="flotback-chart" class="flot-background"></div>
+                                    <div class="card-body">
+                                        <div class="mt-3 mb-4 d-flex">
+                                            <div
+                                                class="avatar avatar-md bg-secondary-transparent text-secondary bradius me-3">
+                                                <i class="fe fe-check"></i>
+                                            </div>
+                                            <div class="">
+                                                <h6 class="mb-1 fw-semibold">Delivered Orders</h6>
+                                                <p class="fw-normal fs-12"> <span class="text-success">3.5%</span>
+                                                    increased </p>
+                                            </div>
+                                            <div class="my-auto ms-auto">
+                                                <p class="fw-bold fs-20"> 1,768 </p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="avatar avatar-md bg-pink-transparent text-pink bradius me-3">
+                                                <i class="fe fe-x"></i>
+                                            </div>
+                                            <div class="">
+                                                <h6 class="mb-1 fw-semibold">Cancelled Orders</h6>
+                                                <p class="fw-normal fs-12"> <span class="text-success">1.2%</span>
+                                                    increased </p>
+                                            </div>
+                                            <div class="my-auto ms-auto">
+                                                <p class="mb-0 fw-bold fs-20"> 3,675 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- COL END -->
+                        </div>
+                        <!-- ROW-2 END -->
+
+                        <!-- ROW-3 -->
+                        <div class="row">
+                            <div class="col-xl-4 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title fw-semibold">Daily Activity</h4>
+                                    </div>
+                                    <div class="pb-0 card-body">
+                                        <ul class="task-list">
+                                            <li class="d-sm-flex">
+                                                <div>
+                                                    <i class="task-icon bg-primary"></i>
+                                                    <h6 class="fw-semibold">Task Finished<span
+                                                            class="mx-2 text-muted fs-11 fw-normal">09 July 2021</span>
+                                                    </h6>
+                                                    <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)"
+                                                            class="fw-semibold"> Project Management</a></p>
+                                                </div>
+                                                <div class="ms-auto d-md-flex">
+                                                    <a href="javascript:void(0)" class="text-muted me-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Edit" aria-label="Edit"><span
+                                                            class="fe fe-edit"></span></a>
+                                                    <a href="javascript:void(0)" class="text-muted"><span
+                                                            class="fe fe-trash-2"></span></a>
+                                                </div>
+                                            </li>
+                                            <li class="d-sm-flex">
+                                                <div>
+                                                    <i class="task-icon bg-secondary"></i>
+                                                    <h6 class="fw-semibold">New Comment<span
+                                                            class="mx-2 text-muted fs-11 fw-normal">05 July 2021</span>
+                                                    </h6>
+                                                    <p class="text-muted fs-12">Victoria commented on Project <a
+                                                            href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a></p>
+                                                </div>
+                                                <div class="ms-auto d-md-flex">
+                                                    <a href="javascript:void(0)" class="text-muted me-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Edit" aria-label="Edit"><span
+                                                            class="fe fe-edit"></span></a>
+                                                    <a href="javascript:void(0)" class="text-muted"><span
+                                                            class="fe fe-trash-2"></span></a>
+                                                </div>
+                                            </li>
+                                            <li class="d-sm-flex">
+                                                <div>
+                                                    <i class="task-icon bg-success"></i>
+                                                    <h6 class="fw-semibold">New Comment<span
+                                                            class="mx-2 text-muted fs-11 fw-normal">25 June 2021</span>
+                                                    </h6>
+                                                    <p class="text-muted fs-12">Victoria commented on Project <a
+                                                            href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a></p>
+                                                </div>
+                                                <div class="ms-auto d-md-flex">
+                                                    <a href="javascript:void(0)" class="text-muted me-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Edit" aria-label="Edit"><span
+                                                            class="fe fe-edit"></span></a>
+                                                    <a href="javascript:void(0)" class="text-muted"><span
+                                                            class="fe fe-trash-2"></span></a>
+                                                </div>
+                                            </li>
+                                            <li class="d-sm-flex">
+                                                <div>
+                                                    <i class="task-icon bg-warning"></i>
+                                                    <h6 class="fw-semibold">Task Overdue<span
+                                                            class="mx-2 text-muted fs-11 fw-normal">14 June 2021</span>
+                                                    </h6>
+                                                    <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a
+                                                            href="javascript:void(0)" class="fw-semibold"> Integrated management</a></p>
+                                                </div>
+                                                <div class="ms-auto d-md-flex">
+                                                    <a href="javascript:void(0)" class="text-muted me-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Edit" aria-label="Edit"><span
+                                                            class="fe fe-edit"></span></a>
+                                                    <a href="javascript:void(0)" class="text-muted"><span
+                                                            class="fe fe-trash-2"></span></a>
+                                                </div>
+                                            </li>
+                                            <li class="d-sm-flex">
+                                                <div>
+                                                    <i class="task-icon bg-danger"></i>
+                                                    <h6 class="fw-semibold">Task Overdue<span
+                                                            class="mx-2 text-muted fs-11 fw-normal">29 June 2021</span>
+                                                    </h6>
+                                                    <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a
+                                                            href="javascript:void(0)" class="fw-semibold"> Integrated management</a></p>
+                                                </div>
+                                                <div class="ms-auto d-md-flex">
+                                                    <a href="javascript:void(0)" class="text-muted me-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Edit" aria-label="Edit"><span
+                                                            class="fe fe-edit"></span></a>
+                                                    <a href="javascript:void(0)" class="text-muted"><span
+                                                            class="fe fe-trash-2"></span></a>
+                                                </div>
+                                            </li>
+                                            <li class="d-sm-flex">
+                                                <div>
+                                                    <i class="task-icon bg-info"></i>
+                                                    <h6 class="fw-semibold">Task Finished<span
+                                                            class="mx-2 text-muted fs-11 fw-normal">09 July 2021</span>
+                                                    </h6>
+                                                    <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)"
+                                                            class="fw-semibold"> Project Management</a></p>
+                                                </div>
+                                                <div class="ms-auto d-md-flex">
+                                                    <a href="javascript:void(0)" class="text-muted me-2" data-bs-toggle="tooltip"
+                                                        data-bs-placement="top" title="Edit" aria-label="Edit"><span
+                                                            class="fe fe-edit"></span></a>
+                                                    <a href="javascript:void(0)" class="text-muted"><span
+                                                            class="fe fe-trash-2"></span></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-12">
+                                <div class="overflow-hidden card">
+                                    <div class="card-header">
+                                        <div>
+                                            <h3 class="card-title">Sales Report by Locations with Devices</h3>
+                                        </div>
+                                    </div>
+                                    <div class="p-0 mt-2 card-body">
+                                        <div class="">
+                                            <div id="world-map-markers1" class="worldh world-map h-250"></div>
+                                        </div>
+                                        <div class="mt-2 text-center table-responsive">
+                                            <table class="table mb-0 border-dashed text-nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-start">Device</th>
+                                                        <th class="">USA</th>
+                                                        <th class="">India</th>
+                                                        <th class="">Bahrain</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="p-4 text-start"><span
+                                                                class="p-2 mx-2 sales-icon text-primary brround bg-primary-transparent"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
+                                                                    height="18" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
+                                                                    <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                                </svg></span><span class="mobile">Mobiles</span>
+                                                        </td>
+                                                        <td class="p-4">17%</td>
+                                                        <td class="p-4">22%</td>
+                                                        <td class="p-4">11%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-4 text-start"><span
+                                                                class="p-2 mx-2 sales-icon text-secondary brround bg-secondary-transparent"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
+                                                                    height="18" fill="currentColor
+                                " class="bi bi-display" viewBox="0 0 16 16">
+                                                                    <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46
+                                    0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757
+                                    0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z" />
+                                                                </svg></span>Desktops</td>
+                                                        <td class="p-4">34%</td>
+                                                        <td class="p-4">76%</td>
+                                                        <td class="p-4">58%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-4 text-start"><span
+                                                                class="p-2 mx-2 sales-icon text-danger brround bg-danger-transparent"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="18"
+                                                                    height="18" fill="currentColor" class="bi bi-tablet " viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                                                    <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                                                                </svg></span>Tablets</td>
+                                                        <td class="p-4">56%</td>
+                                                        <td class="p-4">83%</td>
+                                                        <td class="p-4">66%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--end /table-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title fw-semibold">Browser Usage</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="browser-stats">
+                                            <div class="mb-4 row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/chrome.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">Chrome</h6>
+                                                        <h6 class="mb-1 fw-semibold">35,502 <span
+                                                                class="text-success fs-11">(<i
+                                                                    class="fe fe-arrow-up"></i>12.75%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-primary" style="width: 70%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/opera.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">Opera</h6>
+                                                        <h6 class="mb-1 fw-semibold">12,563 <span
+                                                                class="text-danger fs-11">(<i
+                                                                    class="fe fe-arrow-down"></i>15.12%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-secondary" style="width: 40%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/ie.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">IE</h6>
+                                                        <h6 class="mb-1 fw-semibold">25,364 <span
+                                                                class="text-success fs-11">(<i
+                                                                    class="fe fe-arrow-down"></i>24.37%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-success" style="width: 50%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/firefox.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">Firefox</h6>
+                                                        <h6 class="mb-1 fw-semibold">14,635 <span
+                                                                class="text-success fs-11">(<i
+                                                                    class="fe fe-arrow-down"></i>15.63%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-danger" style="width: 50%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/edge.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">Edge</h6>
+                                                        <h6 class="mb-1 fw-semibold">15,453 <span
+                                                                class="text-danger fs-11">(<i
+                                                                    class="fe fe-arrow-down"></i>23.70%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-warning" style="width: 10%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/safari.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">Safari</h6>
+                                                        <h6 class="mb-1 fw-semibold">10,054 <span
+                                                                class="text-success fs-11">(<i
+                                                                    class="fe fe-arrow-up"></i>11.04%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-info" style="width: 40%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="mb-3 col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0">
+                                                    <img src="{{ asset('admin/assets/images/browsers/netscape.svg') }}" class="img-fluid"
+                                                        alt="img">
+                                                </div>
+                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
+                                                    <div class="mb-1 d-flex align-items-end justify-content-between">
+                                                        <h6 class="mb-1">Netscape</h6>
+                                                        <h6 class="mb-1 fw-semibold">35,502 <span
+                                                                class="text-success fs-11">(<i
+                                                                    class="fe fe-arrow-up"></i>12.75%)</span></h6>
+                                                    </div>
+                                                    <div class="h-2 mb-3 progress">
+                                                        <div class="progress-bar bg-green" style="width: 30%;"
+                                                            role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW-3 END -->
+
+                        <!-- ROW-4 -->
+                        <div class="row">
+                            <div class="col-12 col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="mb-0 card-title">Product Sales</h3>
+                                    </div>
+                                    <div class="pt-4 card-body">
+                                        <div class="grid-margin">
+                                            <div class="">
+                                                <div class="panel panel-primary">
+                                                    <div class="p-0 border-0 tab-menu-heading">
+                                                        <div class="tabs-menu1">
+                                                            <!-- Tabs -->
+                                                            <ul class="nav panel-tabs product-sale">
+                                                                <li><a href="#tab5" class="active"
+                                                                        data-bs-toggle="tab">All products</a></li>
+                                                                <li><a href="#tab6" data-bs-toggle="tab"
+                                                                        class="text-dark">Shipped</a></li>
+                                                                <li><a href="#tab7" data-bs-toggle="tab"
+                                                                        class="text-dark">Pending</a></li>
+                                                                <li><a href="#tab8" data-bs-toggle="tab"
+                                                                        class="text-dark">Cancelled</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pt-0 border-0 panel-body tabs-menu-body">
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="tab5">
+                                                                <div class="table-responsive">
+                                                                    <table id="data-table"
+                                                                        class="table mb-0 table-bordered text-nowrap">
+                                                                        <thead class="border-top">
+                                                                            <tr>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Tracking Id</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Product</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Customer</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Date</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Amount</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Payment Mode</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 10%;">Status</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765490</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/10.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Headsets</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cherry Blossom</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">30 Aug
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$6.721.5</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #76348798</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/12.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Flower Pot</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Simon Sais</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">15 Nov
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$35,7863</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #23986456</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/4.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Pen Drive</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Manny Jah</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">27 Jan
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$5,89,6437</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #87456325</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/8.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                New Bowl</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Florinda Carasco</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">19 Sep
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$17.98</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #65783926</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/6.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Leather Watch</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Ivan Notheridiya</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">06 Oct
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #34654895</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/1.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Digital Camera</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Willie Findit</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">10 Jul
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765345</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/11.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Earphones</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Addie Minstra</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">25 Jun
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$7,34,9768</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #67546577</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/2.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Shoes</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Laura Biding</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">22 Feb
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$7.76.654</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane" id="tab6">
+                                                                <div class="table-responsive">
+                                                                    <table
+                                                                        class="table mb-0 table-bordered text-nowrap">
+                                                                        <thead class="border-top">
+                                                                            <tr>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Tracking Id</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Product</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Customer</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Date</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Amount</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Payment Mode</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 10%;">Status</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765490</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/10.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Headsets</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cherry Blossom</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">30 Aug
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$6.721.5</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #76348798</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/12.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Flower Pot</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Simon Sais</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">15 Nov
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$35,7863</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #23986456</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/4.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Pen Drive</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Manny Jah</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">27 Jan
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$5,89,6437</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #87456325</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/8.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                New Bowl</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Florinda Carasco</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">19 Sep
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$17.98</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #65783926</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/6.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Leather Watch</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Ivan Notheridiya</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">06 Oct
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #34654895</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/1.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Digital Camera</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Willie Findit</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">10 Jul
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765345</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/11.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Earphones</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Addie Minstra</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">25 Jun
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$7,34,9768</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #67546577</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/2.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Shoes</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Laura Biding</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">22 Feb
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$7.76.654</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-success-transparent rounded-pill text-success">Shipped</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane" id="tab7">
+                                                                <div class="table-responsive">
+                                                                    <table
+                                                                        class="table mb-0 table-bordered text-nowrap">
+                                                                        <thead class="border-top">
+                                                                            <tr>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Tracking Id</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Product</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Customer</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Date</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Amount</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Payment Mode</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 10%;">Status</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765490</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/10.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Headsets</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cherry Blossom</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">30 Aug
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$6.721.5</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #23986456</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/4.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Pen Drive</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Manny Jah</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">27 Jan
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$5,89,6437</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #87456325</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/8.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                New Bowl</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Florinda Carasco</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">19 Sep
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$17.98</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #65783926</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/6.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Leather Watch</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Ivan Notheridiya</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">06 Oct
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #34654895</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/1.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Digital Camera</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Willie Findit</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">10 Jul
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765345</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/11.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Earphones</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Addie Minstra</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">25 Jun
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$7,34,9768</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #67546577</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/2.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Shoes</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Laura Biding</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">22 Feb
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$7.76.654</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-warning-transparent rounded-pill text-warning">Pending</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane" id="tab8">
+                                                                <div class="table-responsive">
+                                                                    <table
+                                                                        class="table mb-0 table-bordered text-nowrap">
+                                                                        <thead class="border-top">
+                                                                            <tr>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Tracking Id</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Product</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Customer</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Date</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Amount</th>
+                                                                                <th
+                                                                                    class="bg-transparent border-bottom-0">
+                                                                                    Payment Mode</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 10%;">Status</th>
+                                                                                <th class="bg-transparent border-bottom-0"
+                                                                                    style="width: 5%;">Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #98765490</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/10.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Headsets</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cherry Blossom</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">30 Aug
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$6.721.5</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #76348798</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/12.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Flower Pot</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Simon Sais</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">15 Nov
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$35,7863</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #23986456</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/4.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Pen Drive</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Manny Jah</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">27 Jan
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$5,89,6437</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #87456325</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/8.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                New Bowl</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Florinda Carasco</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">19 Sep
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$17.98</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Online Payment</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #65783926</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/6.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Leather Watch</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Ivan Notheridiya</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">06 Oct
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="border-bottom">
+                                                                                <td class="text-center">
+                                                                                    <div class="mt-0 mt-sm-2 d-block">
+                                                                                        <h6
+                                                                                            class="mb-0 fs-14 fw-semibold">
+                                                                                            #34654895</h6>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <span class="avatar bradius"
+                                                                                            style="background-image: url({{ asset('admin/assets/images/orders/1.jpg') }}"></span>
+                                                                                        <div
+                                                                                            class="mt-0 ms-3 mt-sm-2 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Digital Camera</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Willie Findit</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><span class="mt-sm-2 d-block">10 Jul
+                                                                                        2021</span></td>
+                                                                                <td><span
+                                                                                        class="fw-semibold mt-sm-2 d-block">$8.654.4</span>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="d-flex">
+                                                                                        <div
+                                                                                            class="mt-0 mt-sm-3 d-block">
+                                                                                            <h6
+                                                                                                class="mb-0 fs-14 fw-semibold">
+                                                                                                Cash on Delivery</h6>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="mt-sm-1 d-block">
+                                                                                        <span
+                                                                                            class="p-2 px-3 badge bg-danger-transparent rounded-pill text-danger">Cancelled</span>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="g-2">
+                                                                                        <a class="btn text-primary btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Edit"><span
+                                                                                                class="fe fe-edit fs-14"></span></a>
+                                                                                        <a class="btn text-danger btn-sm"
+                                                                                            data-bs-toggle="tooltip"
+                                                                                            data-bs-original-title="Delete"><span
+                                                                                                class="fe fe-trash-2 fs-14"></span></a>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ROW-4 END -->
+                    </div>
+                    <!-- CONTAINER END -->
+                </div>
+            </div>
+            <!--app-content close-->
+
+        </div>
+
+        <!-- Sidebar-right -->
+        <div class="sidebar sidebar-right sidebar-animate">
+            <div class="mb-0 border-0 shadow-none panel panel-primary card">
+                <div class="p-3 border-0 tab-menu-heading d-flex">
+                    <div class="mb-0 card-title"><i class="fe fe-bell me-2"></i><span
+                            class=" pulse"></span>Notifications</div>
+                    <div class="card-options ms-auto">
+                        <a href="javascript:void(0);" class="mb-1 sidebar-icon text-end float-end me-3"
+                            data-bs-toggle="sidebar-right" data-target=".sidebar-right"><i
+                                class="text-white fe fe-x"></i></a>
+                    </div>
+                </div>
+                <div class="p-0 border-0 panel-body tabs-menu-body latest-tasks">
+                    <div class="tabs-menu border-bottom">
+                        <!-- Tabs -->
+                        <ul class="nav panel-tabs">
+                            <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i
+                                        class="fe fe-settings me-1"></i>Feeds</a></li>
+                            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a></li>
+                            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>Timeline</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="side1">
+                            <div class="p-3 fw-semibold ps-5">Feeds</div>
+                            <div class="pt-2 card-body">
+                                <div class="browser-stats">
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span class="feeds avatar-circle brround bg-primary-transparent"><i
+                                                    class="fe fe-user text-primary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New user registered</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-secondary brround bg-secondary-transparent"><i
+                                                    class="fe fe-shopping-cart text-secondary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New order delivered</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-danger brround bg-danger-transparent"><i
+                                                    class="fe fe-bell text-danger"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">You have pending tasks</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-warning brround bg-warning-transparent"><i
+                                                    class="fe fe-gitlab text-warning"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New version arrived</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-pink brround bg-pink-transparent"><i
+                                                    class="fe fe-database text-pink"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Server #1 overloaded</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-info brround bg-info-transparent"><i
+                                                    class="fe fe-check-circle text-info"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">New project launched</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                    <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-3 fw-semibold ps-5">Settings</div>
+                            <div class="pt-2 card-body">
+                                <div class="browser-stats">
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span class="feeds avatar-circle brround bg-primary-transparent"><i
+                                                    class="fe fe-settings text-primary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">General Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-secondary brround bg-secondary-transparent"><i
+                                                    class="fe fe-map-pin text-secondary"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Map Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-danger brround bg-danger-transparent"><i
+                                                    class="fe fe-headphones text-danger"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Support Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-warning brround bg-warning-transparent"><i
+                                                    class="fe fe-credit-card text-warning"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Payment Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 row">
+                                        <div class="mb-3 col-sm-2 mb-sm-0">
+                                            <span
+                                                class="feeds avatar-circle avatar-circle-pink brround bg-pink-transparent"><i
+                                                    class="fe fe-bell text-pink"></i></span>
+                                        </div>
+                                        <div class="col-sm-10 ps-sm-0">
+                                            <div class="d-flex align-items-end justify-content-between ms-2">
+                                                <h6 class="">Notification Settings</h6>
+                                                <div>
+                                                    <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="side2">
+                            <div class="list-group list-group-flush">
+                                <div class="pt-3 fw-semibold ps-5">Today</div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/2.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Addie Minstra</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hey! there I' am available.... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/11.jpg') }}"><span
+                                                class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Rose Bush</div>
+                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/10.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Claude Strophobia</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/13.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Eileen Dover</div>
+                                            <p class="mb-0 fs-12 text-muted"> New product Launching... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/12.jpg') }}"><span
+                                                class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Willie Findit</div>
+                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/15.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Manny Jah</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/4.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Cherry Blossom</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hey! there I' am available....</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="pt-3 fw-semibold ps-5">Yesterday</div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/7.jpg') }}"><span
+                                                class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Simon Sais</div>
+                                            <p class="mb-0 fs-12 text-muted">Schedule Realease...... </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/9.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Laura Biding</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/2.jpg') }}"><span
+                                                class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Addie Minstra</div>
+                                            <p class="mb-0 fs-12 text-muted">Contact me for details....</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/9.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Ivan Notheridiya</div>
+                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/14.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Dulcie Veeta</div>
+                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/11.jpg') }}"></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Florinda Carasco</div>
+                                            <p class="mb-0 fs-12 text-muted">New product Launching...</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-md brround cover-image"
+                                            data-bs-image-src="{{ asset('admin/assets/images/users/4.jpg') }}"><span
+                                                class="avatar-status bg-success"></span></span>
+                                    </div>
+                                    <div class="">
+                                        <a href="chat.html">
+                                            <div class="fw-semibold text-dark" data-bs-toggle="modal"
+                                                data-target="#chatmodel">Cherry Blossom</div>
+                                            <p class="mb-0 fs-12 text-muted">cherryblossom@gmail.com</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="side3">
+                            <ul class="task-list timeline-task">
+                                <li class="mt-4 d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Finished<span
+                                                class="mx-2 text-muted fs-11 fw-normal">09 July 2021</span></h6>
+                                        <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)"
+                                                class="fw-semibold"> Project Management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">New Comment<span
+                                                class="mx-2 text-muted fs-11 fw-normal">05 July 2021</span></h6>
+                                        <p class="text-muted fs-12">Victoria commented on Project <a href="javascript:void(0)"
+                                                class="fw-semibold"> AngularJS Template</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">New Comment<span
+                                                class="mx-2 text-muted fs-11 fw-normal">25 June 2021</span></h6>
+                                        <p class="text-muted fs-12">Victoria commented on Project <a href="javascript:void(0)"
+                                                class="fw-semibold"> AngularJS Template</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Overdue<span
+                                                class="mx-2 text-muted fs-11 fw-normal">14 June 2021</span></h6>
+                                        <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a href="javascript:void(0)"
+                                                class="fw-semibold"> Integrated management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Overdue<span
+                                                class="mx-2 text-muted fs-11 fw-normal">29 June 2021</span></h6>
+                                        <p class="mb-0 text-muted fs-12">Petey Cruiser finished task <a href="javascript:void(0)"
+                                                class="fw-semibold"> Integrated management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                                <li class="d-sm-flex">
+                                    <div>
+                                        <i class="task-icon1"></i>
+                                        <h6 class="fw-semibold">Task Finished<span
+                                                class="mx-2 text-muted fs-11 fw-normal">09 July 2021</span></h6>
+                                        <p class="text-muted fs-12">Adam Berry finished task on<a href="javascript:void(0)"
+                                                class="fw-semibold"> Project Management</a></p>
+                                    </div>
+                                    <div class="ms-auto d-md-flex me-3">
+                                        <a href="javascript:void(0)" class="text-muted me-2"><span class="fe fe-edit"></span></a>
+                                        <a href="javascript:void(0)" class="text-muted"><span class="fe fe-trash-2"></span></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Sidebar-right-->
+
+        <!-- Country-selector modal-->
+        <div class="modal fade" id="country-selector">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content country-select-modal">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Choose Country</h6><button aria-label="Close" class="btn-close"
+                            data-bs-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="p-3 row">
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block active">
+                                    <span class="country-selector"><img alt="" src="{{ asset('admin/assets/images/flags/us_flag.jpg') }}"
+                                            class="me-3 language"></span>USA
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/italy_flag.jpg') }}"
+                                        class="me-3 language"></span>Italy
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/spain_flag.jpg') }}"
+                                        class="me-3 language"></span>Spain
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/india_flag.jpg') }}"
+                                        class="me-3 language"></span>India
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/french_flag.jpg') }}"
+                                        class="me-3 language"></span>French
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/russia_flag.jpg') }}"
+                                        class="me-3 language"></span>Russia
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/germany_flag.jpg') }}"
+                                        class="me-3 language"></span>Germany
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt=""
+                                        src="{{ asset('admin/assets/images/flags/argentina.jpg') }}"
+                                        class="me-3 language"></span>Argentina
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt="" src="{{ asset('admin/assets/images/flags/malaysia.jpg') }}"
+                                        class="me-3 language"></span>Malaysia
+                                </a>
+                            </li>
+                            <li class="mb-2 col-lg-6">
+                                <a href="javascript:void(0)" class="btn btn-country btn-lg btn-block">
+                                    <span class="country-selector"><img alt="" src="{{ asset('admin/assets/images/flags/turkey.jpg') }}"
+                                        class="me-3 language"></span>Turkey
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <!-- END: Account Menu -->
             </div>
-            <!-- END: Top Bar -->
-            <div class="relative">
-                <div class="grid grid-cols-12 gap-6">
-                    <div class="z-10 col-span-12 xl:col-span-12 2xl:col-span-12">
-                        <div class="mt-6 -mb-6 intro-y">
-                            <div class="flex items-center mb-6 text-white alert alert-dismissible show box bg-primary"
-                                role="alert">
-                                <span>
-                                    Dashboard heading
-                                </span>
-                              
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-12 mb-3 mt-14 sm:gap-10 intro-y">
-                            <div
-                                class="relative col-span-12 py-6 text-center sm:col-span-6 md:col-span-4 sm:pl-5 md:pl-0 lg:pl-5 sm:text-left">
-                               
-                               
-                               
-                                
-                               
-                            </div>
-                          
-                          
-                        </div>
-                    </div>
-                   
-                </div>
-              
-            </div>
-            
         </div>
-        <!-- END: Content -->
-    </div>   
-    <!-- BEGIN: JS Assets-->
-    <script
-    src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-    crossorigin="anonymous"></script>
-    <script src="{{ asset('admin/dist/js/side-menu.js') }}"></script>
-    <script src="{{ asset('admin/dist/js/mobile-menu.js') }}"></script>
-    <!-- choose one -->
-    <script src="https://unpkg.com/feather-icons"></script>
+        <!-- Country-selector modal-->
 
-    <script>
-        feather.replace()
-      </script>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="flex-row-reverse row align-items-center">
+                    <div class="text-center col-md-12 col-sm-12">
+                        Copyright © <span id="year"></span> <a href="javascript:void(0)">Sash</a>. Designed with <span
+                            class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> Spruko </a> All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER END -->
+
+    </div>
+    <!-- BEGIN: JS Assets-->
+    <!-- BACK-TO-TOP -->
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+    <script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="{{ asset('admin/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
+    <!-- SPARKLINE JS-->
+    <script src="{{ asset('admin/assets/js/jquery.sparkline.min.js') }}"></script>
+
+    <!-- Sticky js -->
+    <script src="{{ asset('admin/assets/js/sticky.js') }}"></script>
+
+    <!-- CHART-CIRCLE JS-->
+    <script src="{{ asset('admin/assets/js/circle-progress.min.js') }}"></script>
+
+    <!-- PIETY CHART JS-->
+    <script src="{{ asset('admin/assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/peitychart/peitychart.init.js') }}"></script>
+
+    <!-- SIDEBAR JS -->
+    <script src="{{ asset('admin/assets/plugins/sidebar/sidebar.js') }}"></script>
+
+    <!-- Perfect SCROLLBAR JS-->
+    <script src="{{ asset('admin/assets/plugins/p-scroll/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/p-scroll/pscroll.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/p-scroll/pscroll-1.js') }}"></script>
+
+    <!-- INTERNAL CHARTJS CHART JS-->
+    <script src="{{ asset('admin/assets/plugins/chart/Chart.bundle.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/chart/rounded-barchart.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/chart/utils.js') }}"></script>
+
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="{{ asset('admin/assets/plugins/select2/select2.full.min.js') }}"></script>
+
+    <!-- INTERNAL Data tables js-->
+    <script src="{{ asset('admin/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+
+    <!-- INTERNAL APEXCHART JS -->
+    <script src="{{ asset('admin/assets/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/apexchart/irregular-data-series.js') }}"></script>
+
+    <!-- INTERNAL Flot JS -->
+    <script src="{{ asset('admin/assets/plugins/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/flot/jquery.flot.fillbetween.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/flot/chart.flot.sampledata.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/flot/dashboard.sampledata.js') }}"></script>
+
+    <!-- INTERNAL Vector js -->
+    <script src="{{ asset('admin/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+
+    <!-- SIDE-MENU JS-->
+    <script src="{{ asset('admin/assets/plugins/sidemenu/sidemenu.js') }}"></script>
+
+	<!-- TypeHead js -->
+	<script src="{{ asset('admin/assets/plugins/bootstrap5-typehead/autocomplete.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/typehead.js') }}"></script>
+
+    <!-- INTERNAL INDEX JS -->
+    <script src="{{ asset('admin/assets/js/index1.js') }}"></script>
+
+    <!-- Color Theme js -->
+    <script src="{{ asset('admin/assets/js/themeColors.js') }}"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+   
     <!-- END: JS Assets-->
+     <!-- Scripts -->
+     @livewireScripts
+     @powerGridScripts
 </body>
 
 </html>
