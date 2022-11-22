@@ -114,18 +114,17 @@ final class RoleTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('ID', 'id')
-                ->makeInputRange(),
+            Column::make('ID', 'id'),
 
             Column::make('Role Name', 'name', 'name')
                 ->searchable()
                 ->sortable()
-                ->makeInputDatePicker(),
+                ->makeInputText(),
 
             Column::make('Guard Name', 'guard_name', 'guard_name')
                 ->searchable()
                 ->sortable()
-                ->makeInputDatePicker(),
+                ->makeInputText(),
 
         ];
     }
@@ -146,8 +145,8 @@ final class RoleTable extends PowerGridComponent
     public function actions(): array
     {
         return [
-            Button::make('edit', 'Edit')
-                ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            Button::make('edit', '<span class="fe fe-edit"> </span>')
+                ->class('btn btn-sm btn-primary')
                 ->route('admin.roles.edit', ['role' => 'id']),
 
             //    Button::make('destroy', 'Delete')
