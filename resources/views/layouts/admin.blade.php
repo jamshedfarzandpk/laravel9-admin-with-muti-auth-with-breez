@@ -1516,15 +1516,15 @@
     <script src="{{ asset('admin/assets/plugins/notify/js/jquery.growl.js') }}"></script>
 
     @if (Session::has('message'))
-        <script>           
-                $(function() {
-                    $.growl.warning({
-                        title: "Success",
-                        message: "{{ Session::get('message') }}",
-                      
-                    });
+        <script>
+            $(function() {
+                $.growl.warning({
+                    title: "Success",
+                    message: "{{ Session::get('message') }}",
 
                 });
+
+            });
         </script>
     @endif
     <!-- SIDE-MENU JS-->
@@ -1532,7 +1532,7 @@
 
     <!-- TypeHead js -->
     <script src="{{ asset('admin/assets/plugins/bootstrap5-typehead/autocomplete.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/typehead.js') }}"></script>  
+    <script src="{{ asset('admin/assets/js/typehead.js') }}"></script>
 
     <!-- Color Theme js -->
     <script src="{{ asset('admin/assets/js/themeColors.js') }}"></script>
@@ -1544,6 +1544,50 @@
     <!-- Scripts -->
     @livewireScripts
     @powerGridScripts
+    @stack('scripts')
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            var table = $('.yajra-datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('admin.users.list') }}",
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
+                    },
+                    {
+                        data: 'name',
+                        name: 'name'
+                    },
+                    {
+                        data: 'email',
+                        name: 'email'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'Created at'
+                    },
+                    {
+                        data: 'updated_at',
+                        name: 'Updated at'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: true,
+                        searchable: true
+                    },
+                ]
+            });
+
+        });
+    </script>
+    </head>
 </body>
 
 </html>

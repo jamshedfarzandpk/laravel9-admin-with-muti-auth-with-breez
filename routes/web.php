@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Yajra\DataTables\DataTables;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +43,16 @@ Route::middleware('admin.auth')->prefix('admin')->as('admin.')->group(function (
         return view('admin.dashboard');
     })->middleware(['verified'])->name('admin.dashboard');
     Route::resource('users/roles', RoleController::class);
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+
+    Route::get('/admin-users', [AdminController::class, 'index'])->name('admins.index');
+    Route::get('/admin-users/list', [AdminController::class, 'getUsers'])->name('users.list');
+});
+
+Route::get('user-data', function () {
+    $model = App\Models\User::query();
+
+    return DataTables::of($model)->toJson();
 });
 
 require __DIR__.'/adminAuth.php';
