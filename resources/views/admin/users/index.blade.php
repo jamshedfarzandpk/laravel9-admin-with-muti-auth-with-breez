@@ -13,7 +13,7 @@
                     <div class="d-flex">
 
 
-                        <table class="table table-bordered yajra-datatable" width="100%">
+                        <table class="table table-bordered yajra-datatable table-striped" width="100%">
                             <thead>
                                 <tr>
                                     <th>Id</th>
